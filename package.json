@@ -1,0 +1,48 @@
+{
+  "name": "nightwatch-docker-grid",
+  "version": "1.0.0",
+  "description": "A dockerized Selenium grid for executing Selenium-driven Nightwatch.js tests against your dockerized web app",
+  "main": "",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "cross-env": "^5.2.0",
+    "cucumber": "^5.1.0",
+    "cucumber-html-reporter": "^4.0.3",
+    "cucumber-junit": "^1.7.1",
+    "cucumber-pretty": "^1.4.4",
+    "dotenv": "^6.0.0",
+    "nightwatch": "^1.1.12",
+    "nightwatch-api": "^2.3.0",
+    "socks": "^2.1.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "debug_start": "bin/debug_start",
+    "debug_test": "bin/debug_test",
+    "nightwatch": "nightwatch -e chrome,firefox",
+    "nightwatch-debug": "nightwatch -e chrome_debug,firefox_debug",
+    "start": "bin/start",
+    "stop": "bin/stop",
+    "test": "bin/test",
+    "e2e-test": "cross-env BROWSER=$BROWSER cucumber-js tests/features/New --require tests/cucumber.conf.js --require tests/step_definitions/New --format node_modules/cucumber-pretty --format json:tests/report/cucumber_report.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mycargus/nightwatch-docker-grid.git"
+  },
+  "keywords": [
+    "docker",
+    "selenium",
+    "grid",
+    "nightwatch",
+    "javascript"
+  ],
+  "author": "Michael Hargiss",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mycargus/nightwatch-docker-grid/issues"
+  },
+  "homepage": "https://github.com/mycargus/nightwatch-docker-grid#readme"
+}
