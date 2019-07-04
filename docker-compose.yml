@@ -29,6 +29,8 @@ services:
     networks:
       - nightwatch-docker-grid-network
     logging: *LOG
+    volumes:
+      - ./tests:/home/app/tests:Z
 
   node-chrome:
     image: selenium/node-chrome:3.0.1
@@ -45,8 +47,8 @@ services:
     image: selenium/node-chrome-debug:3.0.1
     environment:
       <<: *SELENIUM_NODE_ENV
-      HTTP_PROXY: 'http://10.0.75.1:4411'
-      HTTPS_PROXY: 'https://10.0.75.1:4411'
+      HTTP_PROXY: 'http://192.168.2.75:4411'
+      HTTPS_PROXY: 'https://192.168.2.75:4411'
       NO_PROXY: 'localhost,127.0.0.1,localaddress,.localdomain.com'
     ports:
       - "5900:5900"

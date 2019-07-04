@@ -1,4 +1,5 @@
 module.exports ={
+  custom_assertions_path: "tests/custom_assertions",
   live_output: true,
   test_settings : {
     default: {
@@ -17,6 +18,23 @@ module.exports ={
       desiredCapabilities: {
         browserName: "chrome"
       }
+    },
+    chrome_bs : {
+      selenium_port: 80,
+      selenium_host: 'hub-cloud.browserstack.com',
+      desiredCapabilities: {
+        'browserstack.user': 'shane212',
+        'browserstack.key': 'KaJRd6ECrpwpcxFyhCbS',
+        'os': 'Windows',
+        'os_version': '10',
+        'browser': 'Chrome',
+        'browser_version': '70.0',
+        'resolution': '1920x1080',
+        'browserstack.debug': 'true',
+        'browserstack.networkLogs': 'true',
+        'project': 'test project',
+        'build': 'test build'
+      },
     },
     firefox : {
       desiredCapabilities: {

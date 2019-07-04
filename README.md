@@ -178,6 +178,22 @@ included `bin/` scripts:
 bin/debug_start
 bin/debug_test
 ```
+## Some commands
+stop and delete all the containers
+`docker stop $(docker ps -q) ; docker rm $(docker ps -aq)`
+
+delete all the none images
+`docker rmi $(docker images -f "dangling=true" -q)`
+
+delete all images
+`docker image rm $(docker image ls -a -q)`
+
+enter the bash of the container
+`docker exec -it containerID bash`
+`docker run -it containerName`
+
+## Note
+The proxy need to be configured in the docker-compose.yml if the google can not be visited
 
 ## Contributing
 
