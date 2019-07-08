@@ -18,6 +18,9 @@ before_install:
   - chmod +x ./scripts/ci/upgrade_docker_compose.sh
   - chmod +x ./scripts/ci/build.sh
   - chmod +x bin/lint_dockerfiles
+  - chmod +x bin/lint_shell
+  - chmod +x bin/lint_markdown
+  - chmod +x bin/lint_yaml
 
 install: true
 
