@@ -32,7 +32,7 @@ bash "$project_root"/lib/continuous_integration.bash lint_yaml
 
 docker-compose pull
 docker-compose build --pull
-docker-compose up -d node-chrome node-firefox hub web
+docker-compose up -d node-chrome node-firefox hub
 
 # wait for the selenium grid browser nodes to register with the selenium grid hub
 sleep 5
