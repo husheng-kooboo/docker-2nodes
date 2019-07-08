@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/mycargus/nightwatch-docker-grid.svg?branch=master)](https://travis-ci.org/mycargus/nightwatch-docker-grid)
+[![Build Status](https://travis-ci.org/husheng-kooboo/docker-2nodes.svg?branch=master)](https://travis-ci.org/husheng-kooboo/docker-2nodes)
 
 # A Dockerized Selenium Grid with Nightwatch
 
