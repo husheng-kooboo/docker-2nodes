@@ -10,7 +10,7 @@ addons:
 env:
   - DOCKER_COMPOSE_VERSION=1.23.2
 
-before_install: ./scripts/ci/upgrade_docker_compose.sh
+before_install: chmod +x ./scripts/ci/upgrade_docker_compose.sh
 
 install: true
 
