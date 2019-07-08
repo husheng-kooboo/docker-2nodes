@@ -6,7 +6,7 @@ Given('I open Google\'s search page', async () => {
 })
 
 Then('the Google search form exists', async () => {
-  await client.waitForElementVisible('#searchform')
+  await client.waitForElementVisible('input[name="q"]')
 })
 
 Then('the link count should be {int}', async (count) => {
@@ -15,11 +15,3 @@ Then('the link count should be {int}', async (count) => {
   })
   await client.assert.count('a', count)
 })
-
-Given('I open Sohu\'s search page', async () => {
-  await client.url('https://www.sohu.com');
-});
-
-Then('the Sohu search form exists', async () => {
-  await client.waitForElementVisible('#search');
-});

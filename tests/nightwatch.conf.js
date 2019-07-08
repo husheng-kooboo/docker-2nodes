@@ -37,6 +37,21 @@ module.exports ={
         'build': 'test build'
       },
     },
+    iphone_bs : {
+      selenium_port: 80,
+      selenium_host: 'hub-cloud.browserstack.com',
+      desiredCapabilities: {
+        'browserstack.user': 'shane212',
+        'browserstack.key': 'KaJRd6ECrpwpcxFyhCbS',
+        'os_version': '11',
+        'device' : 'iPhone 8 Plus',
+        'real_mobile' : 'true',
+        'browserstack.debug': 'true',
+        'browserstack.networkLogs': 'true',
+        'project': 'test project',
+        'build': 'test build'
+      },
+    },
     firefox : {
       desiredCapabilities: {
         browserName: "firefox",
