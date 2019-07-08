@@ -7,3 +7,4 @@ npm-debug.log
 .npm/
 node_modules/
 tests_output/
+tests/screenshots/

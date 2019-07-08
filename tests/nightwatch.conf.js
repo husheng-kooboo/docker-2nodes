@@ -41,22 +41,7 @@ module.exports ={
       desiredCapabilities: {
         browserName: "firefox",
         marionette: true,
-        // proxy: {
-        //   proxyType : "manual",
-        //   httpProxy : "10.0.75.1:4411",
-        //   noProxy : ""
-        // }
       }
-      // Capabilities: {
-      //   browserName: "firefox",
-      //   marionette: true,
-      //   "moz:firefoxOptions": {
-      //     proxy: {
-      //       proxyType: "MANUAL",
-      //       httpProxy: "10.0.75.1:4411"
-      //     }
-      //   }
-      // }
     },
     chrome_debug: {
       desiredCapabilities: {
@@ -66,11 +51,6 @@ module.exports ={
     firefox_debug: {
       desiredCapabilities: {
         browserName: "firefox",
-        // proxy: {
-        //   proxyType : "manual",
-        //   httpProxy : "10.0.75.1:4411",
-        //   noProxy : ""
-        // }
       }
     }
   }
