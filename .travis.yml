@@ -17,6 +17,7 @@ before_install:
   - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
   - chmod +x ./scripts/ci/upgrade_docker_compose.sh
   - chmod +x ./scripts/ci/build.sh
+  - chmod +x bin/lint_dockerfiles
 
 install: true
 
