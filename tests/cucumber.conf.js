@@ -30,12 +30,16 @@ After(async (scenario) => {
   try {
     if (scenario.result.status !== 'passed') {
       console.log(Logger.colors.red('test failed'))
-      sendRestRequest(user, key, sessionId, {'status': 'error', 'reason': scenario.result.exception})
+      if(process.env.BROWSER.indexOf('bs') > -1){
+        sendRestRequest(user, key, sessionId, {'status': 'error', 'reason': scenario.result.exception})
+      }
     }
   } catch (err) {
     console.log(err)
   } finally {
-    sendRestRequest(user, key, sessionId, {'name': scenario.pickle.name})
+    if(process.env.BROWSER.indexOf('bs') > -1){
+      sendRestRequest(user, key, sessionId, {'name': scenario.pickle.name})
+    }
     console.log(Logger.colors.green('    Scenario duration:' + Math.round(parseInt(scenario.result.duration) * 100 / 60000) / 100 + ' min.'))
     await closeSession()
     await stopWebDriver()

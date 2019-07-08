@@ -1,5 +1,6 @@
 module.exports ={
   custom_assertions_path: "tests/custom_assertions",
+  custom_commands_path: "tests/custom_commands",
   live_output: true,
   test_settings : {
     default: {

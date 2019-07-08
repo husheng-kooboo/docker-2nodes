@@ -30,7 +30,7 @@ services:
       - nightwatch-docker-grid-network
     logging: *LOG
     volumes:
-      - ./tests:/home/app/tests:Z
+      - /tests:/tests:Z
 
   node-chrome:
     image: selenium/node-chrome:3.0.1

@@ -6,11 +6,11 @@
     "id": "baidu-search",
     "tags": [
       {
-        "name": "@test",
+        "name": "@baidu",
         "line": 1
       }
     ],
-    "uri": "tests\\features\\New\\baidu.feature",
+    "uri": "tests/features/New/baidu.feature",
     "elements": [
       {
         "id": "baidu-search;searching-baidu",
@@ -19,23 +19,34 @@
         "name": "Searching Baidu",
         "tags": [
           {
-            "name": "@test",
+            "name": "@baidu",
             "line": 1
           }
         ],
         "type": "scenario",
         "steps": [
           {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "tests/cucumber.conf.js:19"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 219000000,
+              "error_message": "Error: An error occurred while retrieving a new session: \"Connection refused to 172.18.0.2:4444\". If the Webdriver/Selenium service is managed by Nightwatch, check if \"start_process\" is set to \"true\".\n    at Selenium2Protocol.handleSessionCreateError (/home/docker/app/node_modules/nightwatch/lib/transport/transport.js:99:15)\n    at HttpRequest.<anonymous> (/home/docker/app/node_modules/nightwatch/lib/transport/transport.js:154:32)\n    at HttpRequest.emit (events.js:200:13)\n    at ClientRequest.<anonymous> (/home/docker/app/node_modules/nightwatch/lib/http/request.js:105:19)\n    at ClientRequest.emit (events.js:205:15)\n    at Socket.socketErrorListener (_http_client.js:402:9)\n    at Socket.emit (events.js:200:13)\n    at emitErrorNT (internal/streams/destroy.js:91:8)\n    at emitErrorAndCloseNT (internal/streams/destroy.js:59:3)\n    at processTicksAndRejections (internal/process/task_queues.js:84:9)"
+            }
+          },
+          {
             "arguments": [],
             "keyword": "Given ",
             "line": 6,
             "name": "I open Baidu's search page",
             "match": {
-              "location": "tests\\step_definitions\\New\\baidu.js:4"
+              "location": "tests/step_definitions/New/baidu.js:4"
             },
             "result": {
-              "status": "passed",
-              "duration": 576000000
+              "status": "skipped"
             }
           },
           {
@@ -44,11 +55,10 @@
             "line": 7,
             "name": "the title is \"百度一下，你就知道\"",
             "match": {
-              "location": "tests\\step_definitions\\New\\baidu.js:9"
+              "location": "tests/step_definitions/New/baidu.js:9"
             },
             "result": {
-              "status": "passed",
-              "duration": 22000000
+              "status": "skipped"
             }
           },
           {
@@ -57,11 +67,126 @@
             "line": 8,
             "name": "the Baidu search form exists",
             "match": {
-              "location": "tests\\step_definitions\\New\\baidu.js:13"
+              "location": "tests/step_definitions/New/baidu.js:13"
+            },
+            "result": {
+              "status": "skipped"
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "tests/cucumber.conf.js:29"
             },
             "result": {
               "status": "passed",
-              "duration": 40000000
+              "duration": 73000000
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "keyword": "Feature",
+    "name": "Google Search",
+    "line": 2,
+    "id": "google-search",
+    "tags": [
+      {
+        "name": "@google",
+        "line": 1
+      }
+    ],
+    "uri": "tests/features/New/google.feature",
+    "elements": [
+      {
+        "id": "google-search;searching-google",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "Searching Google",
+        "tags": [
+          {
+            "name": "@google",
+            "line": 1
+          }
+        ],
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "tests/cucumber.conf.js:19"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1994000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "I open Google's search page",
+            "match": {
+              "location": "tests/step_definitions/New/google.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5027000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "the title is \"Google\"",
+            "match": {
+              "location": "tests/step_definitions/New/baidu.js:9"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 18000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 8,
+            "name": "the Google search form exists",
+            "match": {
+              "location": "tests/step_definitions/New/google.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 67000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 9,
+            "name": "the link count should be 21",
+            "match": {
+              "location": "tests/step_definitions/New/google.js:12"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 1308000000,
+              "error_message": "Error while running \"count\" command: Testing if the element <a> has count:21 in 1000 ms. - expected \u001b[0;32m\"21\"\u001b[0m but got: \u001b[0;31m\"47\"\u001b[0m\n    at World.<anonymous> (/home/docker/app/tests/step_definitions/New/google.js:13:23)"
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "tests/cucumber.conf.js:29"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 81000000
             }
           }
         ]

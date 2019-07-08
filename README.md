@@ -190,7 +190,7 @@ delete all images
 
 enter the bash of the container
 `docker exec -it containerID bash`
-`docker run -it containerName`
+`docker run -it imageName`
 
 ## Note
 The proxy need to be configured in the docker-compose.yml if the google can not be visited
