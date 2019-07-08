@@ -19,12 +19,17 @@ before_install:
   - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
   - chmod +x ./scripts/ci/upgrade_docker_compose.sh
   - chmod +x ./scripts/ci/build.sh
+  - chmod +x ./scripts/run_nightwatch_api.sh
   - chmod +x bin/lint_dockerfiles
   - chmod +x bin/lint_shell
   - chmod +x bin/lint_markdown
   - chmod +x bin/lint_yaml
 
-install: true
+cache:
+  directories:
+    - "node_modules"
+
+install: npm install
 
 script:
   - ./scripts/ci/upgrade_docker_compose.sh
