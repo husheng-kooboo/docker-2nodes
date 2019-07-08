@@ -11,9 +11,13 @@ env:
   - DOCKER_COMPOSE_VERSION=1.23.2
 
 before_install: 
+  - chmod +x ./scripts/ci/update_docker.sh
   - chmod +x ./scripts/ci/upgrade_docker_compose.sh
   - chmod +x ./scripts/ci/build.sh
 
 install: true
 
-script: ./scripts/ci/build.sh
+script: 
+  - ./scripts/ci/update_docker.sh
+  - ./scripts/ci/upgrade_docker_compose.sh
+  - ./scripts/ci/build.sh
