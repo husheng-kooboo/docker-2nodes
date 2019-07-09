@@ -16,7 +16,7 @@ var sendRestRequest = (user, key, sessionId, args) => {
   })
 }
 
-Before(async (scenario) => {
+Before(async function (scenario) {
   await startWebDriver({env: process.env.BROWSER, configFile: 'tests/nightwatch.conf.js'})
   await createSession()
   await client.session(function (session) {
@@ -26,7 +26,7 @@ Before(async (scenario) => {
   })
 });
 
-After(async (scenario) => {
+After(async function (scenario) {
   try {
     if (scenario.result.status !== 'passed') {
       console.log(Logger.colors.red('test failed'))
