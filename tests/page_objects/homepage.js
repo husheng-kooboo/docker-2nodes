@@ -3,7 +3,7 @@ var googleCommands = {
         var sec = this.section.search_form
         sec.waitForElementVisible('@search_box')
         sec.setValue('@search_box', keyword)
-        this.api.keys(this.api.Keys.ENTER)
+        // this.api.keys(this.api.Keys.ENTER)
         return this
     }
 };
@@ -18,6 +18,9 @@ module.exports = {
             elements: {
                 search_box: {
                     selector: 'input[name="q"]'
+                },
+                search_button: {
+                    selector: 'button[aria-label="Google Search"]'
                 }
             }
         }

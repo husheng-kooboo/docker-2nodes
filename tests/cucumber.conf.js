@@ -3,10 +3,10 @@ const { createSession, closeSession, startWebDriver, stopWebDriver, client } = r
 var Logger = require('../node_modules/nightwatch/lib/util/logger.js')
 var request = require('request')
 let sessionId
-let user = 'shane212'
-let key = 'KaJRd6ECrpwpcxFyhCbS'
+let user = 'shane215'
+let key = 'uqwTgk4rqqvaTVi6eviX'
 
-setDefaultTimeout(60000);
+setDefaultTimeout(600000);
 
 var sendRestRequest = (user, key, sessionId, args) => {
   request({
@@ -24,6 +24,7 @@ Before(async function (scenario) {
     console.log(Logger.colors.green('    Session ID: ' + session.sessionId))
     console.log(Logger.colors.green('    Scenario Name: ' + scenario.pickle.name))
   })
+  await sendRestRequest(user, key, sessionId, {'name': scenario.pickle.name})
 });
 
 After(async function (scenario) {
@@ -37,9 +38,6 @@ After(async function (scenario) {
   } catch (err) {
     console.log(err)
   } finally {
-    if(process.env.BROWSER.indexOf('bs') > -1){
-      sendRestRequest(user, key, sessionId, {'name': scenario.pickle.name})
-    }
     console.log(Logger.colors.green('    Scenario duration:' + Math.round(parseInt(scenario.result.duration) * 100 / 60000) / 100 + ' min.'))
     await closeSession()
     await stopWebDriver()
