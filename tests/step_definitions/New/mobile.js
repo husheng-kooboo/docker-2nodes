@@ -12,21 +12,15 @@ When('choose share by QQ', async function () {
 
 Then('the popup should show', async function () {
     await client.waitForElementVisible('.qzone')
-    try{
-        await client.click('.qzone', function(){
-            client.setContext('NATIVE_APP')
-            client.useXpath()
-            client.click('//*[@name="Allow"]')
-            client.contexts(function(result) {
-                client.setContext(result.value[result.value.length - 1])
-                client.useCss()
-            })
-        })
-        
-    }catch(err){
-        
-    }finally{
-        await client.pause(10000)
-    }
-    
+    await client.click('.qzone')
+    await client.setContext('NATIVE_APP')
+    await client.source(function(res){
+        console.log(res.value)
+    })
+    await client.useXpath()
+    await client.click('//*[@name="Allow"]')
+    await client.contexts(function(result) {
+        client.setContext(result.value[result.value.length - 1])
+        client.useCss()
+    })
 })

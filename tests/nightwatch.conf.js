@@ -45,12 +45,28 @@ module.exports ={
         'browserstack.user': 'shane215',
         'browserstack.key': 'uqwTgk4rqqvaTVi6eviX',
         'os_version': '11',
-        'device' : 'iPhone 8 Plus',
+        'device' : 'iPhone 6S Plus',
         'real_mobile' : 'true',
         'browserstack.debug': 'true',
         'browserstack.networkLogs': 'true',
         'browserstack.appium_version': '1.8.0',
         'browserstack.safari.enablePopups': true, 
+        'project': 'test project',
+        'javascriptEnabled': false,
+        'build': 'test build'
+      },
+    },
+    ipad_bs : {
+      selenium_port: 80,
+      selenium_host: 'hub-cloud.browserstack.com',
+      desiredCapabilities: {
+        'browserstack.user': 'shane215',
+        'browserstack.key': 'uqwTgk4rqqvaTVi6eviX',
+        'os_version': '12',
+        'device' : 'iPad Pro 12.9 2018',
+        'real_mobile' : 'true',
+        'browserstack.debug': 'true',
+        'browserstack.networkLogs': 'true',
         'project': 'test project',
         'build': 'test build'
       },
@@ -68,7 +84,8 @@ module.exports ={
         'browserstack.networkLogs': 'true',
         'browserstack.appium_version' : '1.9.1',
         'project': 'test project',
-        'build': 'test build'
+        'build': 'test build',
+        'webkitResponseTimeout': '60000'
       },
     },
     firefox : {
