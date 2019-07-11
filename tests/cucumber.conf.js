@@ -1,4 +1,4 @@
-const { setDefaultTimeout, AfterAll, BeforeAll, Before, After } = require('cucumber')
+const { setDefaultTimeout, AfterAll, BeforeAll, Before, After, BeforeStep } = require('cucumber')
 const { createSession, closeSession, startWebDriver, stopWebDriver, client } = require('nightwatch-api')
 var Logger = require('../node_modules/nightwatch/lib/util/logger.js')
 var request = require('request')
@@ -28,17 +28,26 @@ Before(async function (scenario) {
 });
 
 After(async function (scenario) {
+  var world = this
   try {
     if (scenario.result.status !== 'passed') {
       console.log(Logger.colors.red('test failed'))
       if(process.env.BROWSER.indexOf('bs') > -1){
-        sendRestRequest(user, key, sessionId, {'status': 'error', 'reason': scenario.result.exception})
+        await sendRestRequest(user, key, sessionId, {'status': 'error', 'reason': scenario.result.exception})
       }
+      console.log(this)
+      // await client.saveScreenshot(`tests/screenshots/${new Date().valueOf()}.jpg`, function(att){
+      await client.screenshot(true, function(att){
+        console.log(att)
+        // Buffer.from(att.split(''))
+        // world.attach(Buffer.from(att.value.split('')), 'image/png')
+        world.attach(att.value, 'image/png')
+      })
     }
   } catch (err) {
-    console.log(err)
+    await console.log(err)
   } finally {
-    console.log(Logger.colors.green('    Scenario duration:' + Math.round(parseInt(scenario.result.duration) * 100 / 60000) / 100 + ' min.'))
+    await console.log(Logger.colors.green('    Scenario duration:' + Math.round(parseInt(scenario.result.duration) * 100 / 60000) / 100 + ' min.'))
     await closeSession()
     await stopWebDriver()
   }

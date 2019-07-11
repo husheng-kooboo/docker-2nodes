@@ -9,7 +9,7 @@
   "dependencies": {
     "cross-env": "^5.2.0",
     "cucumber": "^5.1.0",
-    "cucumber-html-reporter": "^4.0.3",
+    "cucumber-html-reporter": "^5.0.0",
     "cucumber-junit": "^1.7.1",
     "cucumber-pretty": "^1.4.4",
     "dotenv": "^6.0.0",
@@ -27,7 +27,8 @@
     "start": "bin/start",
     "stop": "bin/stop",
     "test": "bin/test",
-    "e2e-test": "cross-env BROWSER=$BROWSER cucumber-js tests/features/New --require tests/cucumber.conf.js --require tests/step_definitions/New --format node_modules/cucumber-pretty --format json:tests/report/cucumber_report.json"
+    "e2e-test": "cross-env BROWSER=$BROWSER cucumber-js tests/features/New --require tests/cucumber.conf.js --require tests/step_definitions/New --format node_modules/cucumber-pretty --format json:tests/report/cucumber_report.json",
+    "e2e-report": "node tests/report/report.js"
   },
   "repository": {
     "type": "git",

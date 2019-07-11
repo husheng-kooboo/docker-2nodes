@@ -36,7 +36,7 @@ module.exports ={
         'browserstack.networkLogs': 'true',
         'project': 'test project',
         'build': 'test build'
-      },
+      }
     },
     iphone_bs : {
       selenium_port: 80,
@@ -52,9 +52,9 @@ module.exports ={
         'browserstack.appium_version': '1.8.0',
         'browserstack.safari.enablePopups': true, 
         'project': 'test project',
-        'javascriptEnabled': false,
+        'nativeWebTap': 'true',
         'build': 'test build'
-      },
+      }
     },
     ipad_bs : {
       selenium_port: 80,
@@ -69,7 +69,7 @@ module.exports ={
         'browserstack.networkLogs': 'true',
         'project': 'test project',
         'build': 'test build'
-      },
+      }
     },
     samsung_bs : {
       selenium_port: 80,
@@ -86,7 +86,7 @@ module.exports ={
         'project': 'test project',
         'build': 'test build',
         'webkitResponseTimeout': '60000'
-      },
+      }
     },
     firefox : {
       desiredCapabilities: {
