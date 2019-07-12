@@ -19,6 +19,6 @@ var options = {
     };
 
     try{
-        reporter.generate(options, function(res){console.log(res+'111')})//.then(function(){console.log('then')}).catch(function(){console.log('catch')});
+        reporter.generate(options)
     }catch(err){console.log('')}
     
