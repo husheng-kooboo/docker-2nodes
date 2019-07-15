@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-docker stop $(docker ps -q);
+docker ps -q | docker stop
 docker rm $(docker ps -aq);
 docker rmi $(docker images -f "dangling=true" -q);
 docker-compose build --pull nightwatch;
