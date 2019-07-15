@@ -4,10 +4,10 @@ version: '3.7'
 services:
 
   hub:
-    image: selenium/hub:3.0.1
+    image: selenium/hub:3.141.5-astatine
     environment:
       GRID_BROWSER_TIMEOUT: 120000
-      GRID_NEW_SESSION_WAIT_TIMEOUT: 8000
+      GRID_NEW_SESSION_WAIT_TIMEOUT: 30000
       GRID_NODE_POLLING: 300
       GRID_TIMEOUT: 120000
       VIRTUAL_HOST: selenium.hub.docker
@@ -33,7 +33,7 @@ services:
       - ./tests:/home/docker/app/tests:Z
 
   node-chrome:
-    image: selenium/node-chrome:3.0.1
+    image: selenium/node-chrome:3.141.5-astatine
     environment: &SELENIUM_NODE_ENV
       # this is a necessary workaround due to a known bug
       # https://github.com/SeleniumHQ/docker-selenium/issues/133
@@ -44,11 +44,11 @@ services:
     logging: *LOG
 
   node-chrome-debug:
-    image: selenium/node-chrome-debug:3.0.1
+    image: selenium/node-chrome-debug:3.141.5-astatine
     environment:
       <<: *SELENIUM_NODE_ENV
-      HTTP_PROXY: 'http://192.168.2.75:4411'
-      HTTPS_PROXY: 'https://192.168.2.75:4411'
+      HTTP_PROXY: 'http://192.168.2.26:4411'
+      HTTPS_PROXY: 'https://192.168.2.26:4411'
       NO_PROXY: 'localhost,127.0.0.1,localaddress,.localdomain.com'
     ports:
       - "5900:5900"
@@ -57,7 +57,7 @@ services:
     logging: *LOG
 
   node-firefox:
-    image: selenium/node-firefox:3.0.1
+    image: selenium/node-firefox:3.141.5-astatine
     environment:
       <<: *SELENIUM_NODE_ENV
       # FF_PREF_HTTP_PROXY_TYPE: "network.proxy.type=1"
@@ -68,7 +68,7 @@ services:
     logging: *LOG
 
   node-firefox-debug:
-    image: selenium/node-firefox-debug:3.0.1
+    image: selenium/node-firefox-debug:3.141.5-astatine
     environment:
       <<: *SELENIUM_NODE_ENV
     ports:

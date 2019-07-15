@@ -2,11 +2,12 @@ module.exports ={
   custom_assertions_path: "tests/custom_assertions",
   custom_commands_path: "tests/custom_commands",
   page_objects_path: "tests/page_objects",
+  globals_path: "global.js",
   live_output: true,
   test_settings : {
     default: {
       launch_url: "https://www.baidu.com",
-      selenium_host  : "hub",
+      selenium_host: "hub",
       desiredCapabilities: {
         browserName: "chrome"
       },
