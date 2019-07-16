@@ -3,10 +3,10 @@ const { createSession, closeSession, startWebDriver, stopWebDriver, client } = r
 var Logger = require('../node_modules/nightwatch/lib/util/logger.js')
 var request = require('request')
 let sessionId
-let user = 'shane215'
-let key = 'uqwTgk4rqqvaTVi6eviX'
+let user = 'leon245'
+let key = 'R3a1BxyWyNZNVgpkM9pC'
 
-setDefaultTimeout(30000);
+setDefaultTimeout(600000);
 
 var sendRestRequest = function (user, key, sessionId, args) {
   request({

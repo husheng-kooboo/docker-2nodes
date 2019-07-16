@@ -6,12 +6,12 @@ Given('open mobile 163 news', async function () {
 })
 
 When('choose share by QQ', async function () {
-    await client.waitForElementVisible('.sharelogo')
+    await client.expect.element('.sharelogo').to.be.visible.before()
     await client.click('.sharelogo')
 })
 
 Then('the popup should show', async function () {
-    await client.waitForElementVisible('.qzone')
+    await client.expect.element('.qzone').to.be.visible.before()
     await client.click('.qzone')
     await client.setContext('NATIVE_APP')
     await client.useXpath()
