@@ -1,7 +1,7 @@
 module.exports ={
   custom_assertions_path: "tests/custom_assertions",
   custom_commands_path: "tests/custom_commands",
-  page_objects_path: "tests/page_objects",
+  page_objects_path: ["tests/page_objects/","tests/page_objects/google/"],
   globals_path: "global.js",
   live_output: true,
   test_settings : {

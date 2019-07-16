@@ -10,7 +10,7 @@ Then(/^the title is "([^"]*)"$/, async title => {
   await client.assert.title(title)
 });
 
-Then(/^the Baidu search form exists$/, async () => {
+Then(/^the Baidu search form exists$/, {timeout: 600*1000}, async () => {
   await client.expect.element('#form').to.be.present
   await client.expect.element('#u1').to.be.present
   await client.expect.element('#u1').text.to.contain('新闻')
@@ -96,5 +96,38 @@ Then(/^the Baidu search form exists$/, async () => {
       console.log(res2)
     })
   })
-  await client.pause(10000)
+  await client.setValue('#kw', 'Nightwatch')
+  await client.click('#su')
+  // await client.pause(10000)
+  // await console.log(client.page.resultPage().section.search_result.getResultById(1).elements)
+  // let sec = client.page.resultPage().section.search_result.getResultById(2)
+  // await client.getText(sec.selector, function(res){
+  //   console.log(res.value)
+  // })
+  // await client.pause(10000)
+  // await console.log(sec.selector)
+  // await sec.getText('@description', function(res){
+  //   console.log(res.value)
+  // })
+  // await sec.expect.element('@description').to.be.visible
+  // await console.log(sec.elements.title.selector)
+  // await client.getText(sec.selector + ' ' + sec.elements.title.selector, function(res){
+  //   console.log(res.value)
+  // })
+  for(var i = 1;i <= 10;i++){
+    let sec = client.page.resultPage().section.search_result.getResultById(i)
+    await client.getText(sec.selector, function(res){
+      console.log(res.value)
+    })
+    await sec.click('@title')
+    await client.pause(1000)
+    await client.windowHandles(function(res){
+      client.switchWindow(res.value[res.value.length - 1])
+      client.closeWindow()
+      client.switchWindow(res.value[0]);
+    })
+  }
+  // await sec.getText('@title', function(res){
+  //   console.log(res.value)
+  // })
 })

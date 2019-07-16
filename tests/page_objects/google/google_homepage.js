@@ -3,7 +3,11 @@ var googleCommands = {
         var sec = this.section.search_form
         sec.waitForElementVisible('@search_box')
         sec.setValue('@search_box', keyword)
-        // this.api.keys(this.api.Keys.ENTER)
+        return this
+    },
+
+    press_enter: function(){
+        this.api.keys(this.api.Keys.ENTER)
         return this
     }
 };
@@ -11,7 +15,7 @@ var googleCommands = {
   
 
 module.exports = {
-    url: 'http://www.google.com',
+    url: 'https://www.google.com',
     sections: {
         search_form: {
             selector: 'form',

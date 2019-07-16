@@ -5,14 +5,14 @@ Given('I open Google\'s search page', async function () {
   // this.parameters.var1 = '1234'
   this.attach('{"name": "some JSON"}', 'application/json')
   // console.log(this)
-  await client.page.homepage().navigate()
+  await client.page.google_homepage().navigate()
 })
 
 Then('the Google search form exists', async function () {
   // console.log(this.parameters.var1)
   // this.parameters.var2 = '5678'
   // console.log(this)
-  await client.page.homepage().section.search_form.waitForElementVisible('@search_box')
+  await client.page.google_homepage().section.search_form.waitForElementVisible('@search_box')
 })
 
 Then('the link count should be correct', async function () {
@@ -30,12 +30,16 @@ Then('the link count should be correct', async function () {
 })
 
 Given('search {string} in search box', async function (keyword) {
-  await client.page.homepage().do_search(keyword)
+  await client.page.google_homepage().do_search(keyword)
+})
+
+When('press the enter in keyboard', async function () {
+  await client.page.google_homepage().press_enter()
 })
 
 When('click the search button', async function () {
-  await client.page.homepage().section.search_form.waitForElementVisible('@search_button')
-  await client.page.homepage().section.search_form.click('@search_button')
+  await client.page.google_homepage().section.search_form.waitForElementVisible('@search_button')
+  await client.page.google_homepage().section.search_form.click('@search_button')
 })
 
 Then('the {string} search result show correct', async function (keyword) {

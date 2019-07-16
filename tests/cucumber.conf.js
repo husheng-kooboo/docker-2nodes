@@ -6,7 +6,7 @@ let sessionId
 let user = 'shane215'
 let key = 'uqwTgk4rqqvaTVi6eviX'
 
-setDefaultTimeout(600000);
+setDefaultTimeout(30000);
 
 var sendRestRequest = function (user, key, sessionId, args) {
   request({
