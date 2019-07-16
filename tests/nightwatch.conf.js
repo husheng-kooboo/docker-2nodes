@@ -19,7 +19,12 @@ module.exports ={
     },
     chrome : {
       desiredCapabilities: {
-        browserName: "chrome"
+        browserName: "chrome",
+        'goog:chromeOptions': {
+          args: ['--disable-gpu',
+          '--ignore-certificate-errors',
+          'window-size=1280,768']
+        }
       }
     },
     chrome_bs : {
