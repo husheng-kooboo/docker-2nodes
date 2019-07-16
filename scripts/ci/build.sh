@@ -37,4 +37,4 @@ docker-compose up -d node-chrome node-firefox hub
 # wait for the selenium grid browser nodes to register with the selenium grid hub
 sleep 5
 
-sudo docker-compose run -e BROWSERENV='chrome' -e TAGS='@baidu' nightwatch
+docker-compose run -e BROWSERENV='chrome' -e TAGS='@baidu' nightwatch

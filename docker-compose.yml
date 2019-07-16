@@ -31,6 +31,7 @@ services:
     logging: *LOG
     volumes:
       - ./tests:/home/docker/app/tests:Z
+    user: root
 
   node-chrome:
     image: selenium/node-chrome:3.141.5-astatine
