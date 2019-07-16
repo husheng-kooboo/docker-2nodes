@@ -9,4 +9,3 @@ node_modules/
 tests_output/
 tests/screenshots/
 tests/report/*.html
-tests/report/*.json
