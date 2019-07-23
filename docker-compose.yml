@@ -48,9 +48,9 @@ services:
     image: selenium/node-chrome-debug:3.141.5-astatine
     environment:
       <<: *SELENIUM_NODE_ENV
-      HTTP_PROXY: 'http://192.168.2.10:4411'
-      HTTPS_PROXY: 'https://192.168.2.10:4411'
-      NO_PROXY: 'localhost,127.0.0.1,localaddress,.localdomain.com'
+      # HTTP_PROXY: 'http://127.0.0.1:8001'
+      # HTTPS_PROXY: 'https://127.0.0.1:8001'
+      # NO_PROXY: 'localhost,127.0.0.1,localaddress,.localdomain.com'
     ports:
       - "5900:5900"
     networks:

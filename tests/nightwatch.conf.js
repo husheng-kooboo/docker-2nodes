@@ -44,6 +44,33 @@ module.exports ={
         'build': 'test build'
       }
     },
+    ios_simulator: {
+      "selenium_start_process": false,
+      "selenium_port" : 4723,
+      "selenium_host" : "192.168.2.14",
+      "silent": true,
+      "automationName": "XCUITest",
+      "desiredCapabilities" : {
+        "browserName" : "Safari",
+        "platformName" : "iOS",
+        "platformVersion" : "12.2",
+        "deviceName" : "iPhone 8"
+      }
+    },
+    ios_real: {
+      "selenium_start_process": false,
+      "selenium_port" : 4723,
+      "selenium_host" : "192.168.2.14",
+      "silent": true,
+      "automationName": "XCUITest",
+      "desiredCapabilities" : {
+        "browserName" : "Safari",
+        "platformName" : "iOS",
+        "platformVersion" : "12.3.1",
+        "deviceName" : "test_ios",
+        "udid" : "f5ba65bf6505545c0cbe197f2d0606915197d11f"
+      }
+    },
     iphone_bs : {
       selenium_port: 80,
       selenium_host: 'hub-cloud.browserstack.com',

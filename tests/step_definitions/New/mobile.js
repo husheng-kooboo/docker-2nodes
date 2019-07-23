@@ -2,17 +2,20 @@ const { client } = require('nightwatch-api')
 const { Given, Then, When} = require('cucumber')
 
 Given('open mobile 163 news', async function () {
-    await client.url('https://news.google.com/articles/CAIiENPV9MwJCYZXKcj1txU1e0sqGQgEKhAIACoHCAowocv1CjCSptoCMPrTpgU?hl=en-US&gl=US&ceid=US%3Aen')
+    await client.url('https://baidu.com')
 })
 
 When('choose share by QQ', async function () {
-    await client.click('.recommend-list .card-type-news:nth-child(1) > a')
-    await client.waitForElementVisible('.sharelogo.js-share')
-    await client.click('.sharelogo.js-share')
+    await client.setValue('#index-kw', '')
+    await client.expect.element('.newHisBtn').to.be.visible
+    await client.click('.newHisBtn')
+    await client.setValue('#index-kw', 'Nightwatch')
+    await client.expect.element('#index-bn').to.be.visible
+    await client.click('#index-bn')
 })
 
 Then('the popup should show', async function () {
-    await client.waitForElementVisible('.qzone')
+    await client.expect.element('#results').to.be.present
     // await client.click('.qzone')
     // await client.setContext('NATIVE_APP')
     // await client.useXpath()

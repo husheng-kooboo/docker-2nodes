@@ -192,6 +192,12 @@ enter the bash of the container
 `docker exec -it containerID bash`
 `docker run -it imageName`
 
+command use in mac
+`docker stop $(docker ps -q) && docker rm $(docker ps -aq)`
+`docker rmi $(docker images -f "dangling=true" -q)`
+`docker-compose build --pull nightwatch`
+`docker-compose up -d hub node-chrome-debug node-firefox-debug nightwatch`
+
 ## Note
 The proxy need to be configured in the docker-compose.yml 
 if the google can not be visited
