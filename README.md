@@ -199,7 +199,9 @@ command use in mac
 `docker-compose up -d hub node-chrome-debug node-firefox-debug nightwatch`
 
 note
-When you use the git clone to pull the project,please remember to use `git config --global core.autocrlf false` if you want to run the project in the Windows system.
+When you use the git clone to pull the project,please remember to use 
+`git config --global core.autocrlf false` 
+if you want to run the project in the Windows system.
 
 ## Note
 The proxy need to be configured in the docker-compose.yml 
