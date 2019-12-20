@@ -180,7 +180,7 @@ Then('input the user information', async () => {
     await client.waitForElementVisible('#EmailAddress-error')
     await client.expect.element('#EmailAddress-error').text.to.equal('Er is al een account bekend bij ons met het ingevoerde e-mailadres. Mogelijk gebruik je dit adres al voor je Perrysport-account. Je kunt dit account gebruiken om hier in te loggen.')
     await client.clearValue('#CustomerDetails_Email')
-    await client.setValue('#CustomerDetails_Email', email = registerInfos.accountInfo.email)
+    await client.setValue('#CustomerDetails_Email', email = `test${(new Date()).valueOf()}@test.com`)
     await client.click('.content-wrapper .form-box:nth-child(1) h2')
     await client.setValue('#AlternativeAddress_PostalCode', '1111AB')
     await client.setValue('#AlternativeAddress_HouseNumber', '00')
