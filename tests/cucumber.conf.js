@@ -32,6 +32,7 @@ Before(async function (scenario) {
 After(async function (scenario) {
   var world = this
   try {
+    // console.log(scenario)
     if (scenario.result.status !== 'passed') {
       console.log(Logger.colors.red('test failed'))
       if(process.env.BROWSER.indexOf('bs') > -1){

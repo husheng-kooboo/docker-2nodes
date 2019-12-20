@@ -19,6 +19,7 @@ services:
       options:
         max-file: '5'
         max-size: 1m
+    user: root
 
   nightwatch:
     build:
@@ -43,22 +44,25 @@ services:
     networks:
       - nightwatch-docker-grid-network
     logging: *LOG
+    user: root
 
   node-chrome-debug:
     image: selenium/node-chrome-debug:3.141.5-astatine
     environment:
       <<: *SELENIUM_NODE_ENV
-      # HTTP_PROXY: 'http://127.0.0.1:8001'
-      # HTTPS_PROXY: 'https://127.0.0.1:8001'
+      # HTTP_PROXY: 'http://10.0.75.1:7890'
+      # HTTPS_PROXY: 'https://10.0.75.1:7890'
       # NO_PROXY: 'localhost,127.0.0.1,localaddress,.localdomain.com'
     ports:
       - "5900:5900"
     networks:
       - nightwatch-docker-grid-network
     logging: *LOG
+    user: root
 
   node-firefox:
-    image: selenium/node-firefox:3.141.5-astatine
+    # image: selenium/node-firefox:3.0.1
+    image: selenium/node-firefox:3.141.59
     environment:
       <<: *SELENIUM_NODE_ENV
       # FF_PREF_HTTP_PROXY_TYPE: "network.proxy.type=1"
@@ -67,9 +71,11 @@ services:
     networks:
       - nightwatch-docker-grid-network
     logging: *LOG
+    user: seluser
 
   node-firefox-debug:
-    image: selenium/node-firefox-debug:3.141.5-astatine
+    # image: selenium/node-firefox-debug:3.0.1
+    image: selenium/node-firefox-debug:3.141.59
     environment:
       <<: *SELENIUM_NODE_ENV
     ports:
@@ -77,6 +83,7 @@ services:
     networks:
       - nightwatch-docker-grid-network
     logging: *LOG
+    user: seluser
 
 networks:
   nightwatch-docker-grid-network:

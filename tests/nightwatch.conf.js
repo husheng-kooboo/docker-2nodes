@@ -1,7 +1,7 @@
 module.exports ={
   custom_assertions_path: "tests/custom_assertions",
   custom_commands_path: "tests/custom_commands",
-  page_objects_path: ["tests/page_objects/","tests/page_objects/google/"],
+  page_objects_path: ["tests/page_objects/","tests/page_objects/google/","tests/page_objects/Aktiesport"],
   globals_path: "global.js",
   live_output: true,
   test_settings : {
@@ -22,9 +22,13 @@ module.exports ={
         browserName: "chrome",
         'goog:chromeOptions': {
           args: ['--disable-gpu',
-          '--ignore-certificate-errors',
-          'window-size=1280,768']
+          '--ignore-certificate-errors']
         }
+      },
+      screenshots : {
+        enabled : true,
+        on_failure : true,
+        path : "tests/tests_output/screenshots"
       }
     },
     chrome_bs : {

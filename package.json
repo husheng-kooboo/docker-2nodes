@@ -28,7 +28,7 @@
     "start": "bin/start",
     "stop": "bin/stop",
     "test": "bin/test",
-    "e2e-test": "cross-env BROWSER=$BROWSER cucumber-js tests/features/New --require tests/cucumber.conf.js --require tests/step_definitions/New --format node_modules/cucumber-pretty --format json:tests/report/cucumber_report.json",
+    "e2e-test": "cross-env BROWSER=$BROWSER cucumber-js tests/features/Aktiesport --require tests/cucumber.conf.js --require tests/step_definitions/Aktiesport --format node_modules/cucumber-pretty --format json:tests/report/cucumber_report.json",
     "e2e-report": "node tests/report/report.js"
   },
   "repository": {

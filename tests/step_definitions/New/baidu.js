@@ -53,7 +53,7 @@ Then(/^the Baidu search form exists$/, {timeout: 600*1000}, async () => {
   await client.expect.element('#kw').to.have.value.that.equals('1234')
   await client.clearValue('#kw')
   await client.expect.element('#kw').to.be.visible
-  await client.expect.elements('a').count.to.equal(45)
+  await client.expect.elements('a').count.to.equal(40)
   await client.expect.title().to.equal('百度一下，你就知道')
   await client.expect.url().to.contain('https://www.baidu.com')
   await client.assert.attributeContains('#kw', 'name', 'wd')

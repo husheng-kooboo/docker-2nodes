@@ -40,7 +40,6 @@ RUN npm ci --ignore-scripts --unsafe-perm --loglevel warn --no-progress || \
     npm install --ignore-scripts --unsafe-perm --loglevel warn --no-progress
 
 USER root
-
 # add rest of repo to image (doing this after installing npm dependencies
 # makes for a faster development workflow because only a change to package*.json
 # will force docker to rebuild the "npm install" layer above)
