@@ -362,7 +362,7 @@ Then('input the register information', async () => {
     await client.waitForElementVisible('#EmailAddress-error')
     await client.expect.element('#EmailAddress-error').text.to.equal('Er is al een account bekend bij ons met het ingevoerde e-mailadres. Mogelijk gebruik je dit adres al voor je Perrysport-account. Je kunt dit account gebruiken om hier in te loggen.')
     await client.clearValue('#EmailAddress')
-    await client.setValue('#EmailAddress', email = registerInfos.accountInfo.email)
+    await client.setValue('#EmailAddress', email = `test${(new Date()).valueOf()}@test.com`)
     await client.click('.form-box h2')
     await client.waitForElementNotVisible('#EmailAddress-error')
     await client.setValue('#Password', '123456')
