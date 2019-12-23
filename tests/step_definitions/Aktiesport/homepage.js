@@ -3,7 +3,6 @@ const { Given, Then, When } = require('cucumber')
 
 Given('open the homepage', async () => {
     await client.page.homepage().navigate()
-    await client.resizeWindow(1968,1020)
 });
 
 Given('click the heren collectie category', async () => {
