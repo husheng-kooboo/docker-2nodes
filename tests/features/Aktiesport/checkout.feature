@@ -4,6 +4,7 @@ Feature: Check out
 
     Background:
         Given open the homepage
+        Then logout and clear the cart
         And click the dames collectie category
     
     @lmhpn

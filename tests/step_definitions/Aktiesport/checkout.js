@@ -14,6 +14,36 @@ accountInfoValidateFun = (fieldSelector, fieldValue, validationInfoSelector, val
     return this
 }
 
+Then('logout and clear the cart', async () => {
+    await client.elements('css selector', '.toggle-single-selector > .toggle-data', result => {
+        if(result.value.length !=0){
+            client.click('.toggle-single-selector > .toggle-data')
+            client.waitForElementVisible('.account-popup a[href="/standby"]')
+            client.click('.account-popup a[href="/standby"]')
+            client.expect.element('.toggle-single-selector > .toggle-data').to.not.be.present.after()
+        } else {
+            home.section.header.section.cart.getText('@cartNumber', result => {
+                if(parseInt(result.value) != 0){
+                    home.section.header.section.cart.click('@cartPrice')
+                    client.waitForElementVisible('.popup-button-edit')
+                    client.click('.popup-button-edit')
+                    home.section.loading.waitForElementNotVisible('@loadingIcon')
+                    client.elements('css selector', '.cart-products .cart-product', result1 => {
+                        result1.value.map((item) => {
+                            client.elementIdElement(item.ELEMENT, 'css selector', '.cart-remove', result2 => {
+                                client.elementIdClick(result2.value.ELEMENT)
+                                home.section.loading.waitForElementNotVisible('@loadingIcon')
+                            })
+                        })
+                    })
+                }
+            })
+        }
+    })
+    await home.section.header.click('@logo')
+    await home.section.category.waitForElementVisible('@herenClothes')
+})
+
 Then('add product into cart', async () => {
     await home.section.loading.waitForElementNotVisible('@loadingIcon')
     await pl.section.productList.waitForElementPresent('@lastProductTitle')
