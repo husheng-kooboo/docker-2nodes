@@ -242,7 +242,7 @@ Then('verify the {string} user information', async (type) => {
     await client.expect.element('.checkout-step-active').text.to.equal('Gegevens')
     await client.expect.element('#AlternativeAddress_FirstName').to.have.value.that.equals(firstName = accountInfo.firstName)
     await client.expect.element('#AlternativeAddress_LastName').to.have.value.that.equals(accountInfo.lastName)
-    await client.expect.element('#CustomerDetails_Email').to.have.value.that.equals(accountInfo.email)
+    await client.expect.element('#CustomerDetails_Email').to.have.value.that.equals(email)
     await client.expect.element('#AlternativeAddress_PostalCode').to.have.value.that.equals(accountInfo.postcode)
     await client.expect.element('#AlternativeAddress_HouseNumber').to.have.value.that.equals(accountInfo.houseNum)
     await client.expect.element('#AlternativeAddress_HouseNumberExtension').to.have.value.that.equals(accountInfo.houseNumExtension)
